@@ -71,7 +71,7 @@ jobs:
         uses: docker/metadata-action@v5
 
         with:
-          images: ghcr.io/moontechlab/lunatv
+          images: ghcr.io/LX0507/suntv
           tags: |
             type=raw,value=${{ github.event.inputs.tag || 'latest' }},enable={{is_default_branch}}
             type=semver,pattern={{version}},enable=${{ github.event_name == 'release' }}
@@ -85,8 +85,8 @@ jobs:
           file: ./Dockerfile
           platforms: ${{ matrix.platform }}
           labels: ${{ steps.meta.outputs.labels }}
-          tags: ghcr.io/moontechlab/lunatv:${{ steps.docker-tag.outputs.tag }}
-          outputs: type=image,name=ghcr.io/moontechlab/lunatv,name-canonical=true,push=true
+          tags: ghcr.io/LX0507/suntv:${{ steps.docker-tag.outputs.tag }}
+          outputs: type=image,name=ghcr.io/LX0507/suntv,name-canonical=true,push=true
 
       - name: Export digest
         run: |
