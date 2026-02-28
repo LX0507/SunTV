@@ -73,7 +73,7 @@
 
 ### zeabur 一键部署
 
-点击下方按钮即可一键部署，自动配置 LunaTV + Kvrocks 数据库：
+点击下方按钮即可一键部署，自动配置 suntv + Kvrocks 数据库：
 
 [![Deploy on Zeabur](https://zeabur.com/button.svg)](https://zeabur.com/templates/8MPTQU/deploy)
 
@@ -83,14 +83,14 @@
 - ✅ 持久化存储，数据永不丢失
 - ✅ 免费额度足够个人使用
 
-**⚠️ 重要提示**：部署完成后，需要在 Zeabur 中为 LunaTV 服务设置访问域名（Domain）才能在浏览器中访问。详见下方 [设置访问域名](#5-设置访问域名必须) 步骤。
+**⚠️ 重要提示**：部署完成后，需要在 Zeabur 中为 suntv 服务设置访问域名（Domain）才能在浏览器中访问。详见下方 [设置访问域名](#5-设置访问域名必须) 步骤。
 
 ### Kvrocks 存储（推荐）
 
 ```yml
 services:
   moontv-core:
-    image: ghcr.io/LX0507/lunatv:latest
+    image: ghcr.io/LX0507/suntv:latest
     container_name: moontv-core
     restart: on-failure
     ports:
@@ -124,7 +124,7 @@ volumes:
 ```yml
 services:
   moontv-core:
-    image: ghcr.io/LX0507/lunatv:latest
+    image: ghcr.io/LX0507/suntv:latest
     container_name: moontv-core
     restart: on-failure
     ports:
@@ -160,7 +160,7 @@ networks:
 ```yml
 services:
   moontv-core:
-    image: ghcr.io/LX0507/lunatv:latest
+    image: ghcr.io/LX0507/suntv:latest
     container_name: moontv-core
     restart: on-failure
     ports:
@@ -195,14 +195,14 @@ Zeabur 是一站式云端部署平台，使用预构建的 Docker 镜像可以�
 
    > 💡 **重要提示**：持久化卷路径必须设置为 `/var/lib/kvrocks/db`（KVRocks 数据目录），这样配置文件保留在容器内，数据库文件持久化，重启后数据不会丢失！
 
-2. **添加 LunaTV 服务**
+2. **添加 suntv 服务**
    - 点击 "Add Service" > "Docker Images"
-   - 输入镜像名称：`ghcr.io/LX0507/lunatv:latest`
+   - 输入镜像名称：`ghcr.io/LX0507/suntv:latest`
    - 配置端口：`3000` (HTTP)
 
 3. **配置环境变量**
 
-   在 LunaTV 服务的环境变量中添加：
+   在 suntv 服务的环境变量中添加：
 
    ```env
    # 必填：管理员账号
@@ -215,8 +215,8 @@ Zeabur 是一站式云端部署平台，使用预构建的 Docker 镜像可以�
 
    # 可选：站点配置
    SITE_BASE=https://your-domain.zeabur.app
-   NEXT_PUBLIC_SITE_NAME=LunaTV Enhanced
-   ANNOUNCEMENT=欢迎使用 LunaTV Enhanced Edition
+   NEXT_PUBLIC_SITE_NAME=suntv Enhanced
+   ANNOUNCEMENT=欢迎使用 suntv Enhanced Edition
 
    # 可选：豆瓣代理配置（推荐）
    NEXT_PUBLIC_DOUBAN_PROXY_TYPE=cmliussss-cdn-tencent
@@ -234,12 +234,12 @@ Zeabur 是一站式云端部署平台，使用预构建的 Docker 镜像可以�
 
 #### 5. 设置访问域名（必须）
 
-   - 在 LunaTV 服务页面，点击 "Networking" 或 "网络" 标签
+   - 在 suntv 服务页面，点击 "Networking" 或 "网络" 标签
    - 点击 "Generate Domain" 生成 Zeabur 提供的免费域名（如 `xxx.zeabur.app`）
    - 或者绑定自定义域名：
      * 点击 "Add Domain" 添加你的域名
      * 按照提示配置 DNS CNAME 记录指向 Zeabur 提供的目标地址
-   - 设置完域名后即可通过域名访问 LunaTV
+   - 设置完域名后即可通过域名访问 suntv
 
 6. **绑定自定义域名（可选）**
    - 在服务设置中点击 "Domains"
@@ -253,7 +253,7 @@ Zeabur 是一站式云端部署平台，使用预构建的 Docker 镜像可以�
 **更新步骤：**
 
 1. **进入服务页面**
-   - 点击需要更新的服务（LunaTV 或 KVRocks）
+   - 点击需要更新的服务（suntv 或 KVRocks）
 
 2. **重启服务**
    - 点击 **"服务状态"** 页面，再点击 **"重启当前版本"** 按钮
@@ -405,4 +405,4 @@ v100.0.0 以上版本可配合 [Selene](https://github.com/LX0507/Selene) 使用
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=LX0507/LunaTV&type=Date)](https://www.star-history.com/#LX0507/LunaTV&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=LX0507/suntv&type=Date)](https://www.star-history.com/#LX0507/suntv&Date)
